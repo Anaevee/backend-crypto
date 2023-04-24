@@ -43,4 +43,20 @@ export class UserRepository {
       return undefined;
     }
   }
+  async login(username: string): Promise<UserPojo> {
+    let data: UserPojo = {} as UserPojo;
+    try {
+      data = await this._userRepository.findOne({ where: { username } });
+      if (data == null) {
+        Error("The user does not exist.");
+      } else {
+        console.log("el usuario existe");
+        console.log(data);
+      }
+    } catch (err) {
+      Error("An Error occurred when retrieving the user.");
+      Error(err);
+    }
+    return data;
+  }
 }

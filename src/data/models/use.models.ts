@@ -1,5 +1,5 @@
 import { Table, Column, Model } from "sequelize-typescript";
-import { INTEGER, STRING } from "sequelize";
+import { INTEGER, STRING, DECIMAL } from "sequelize";
 
 @Table({
   freezeTableName: true,
@@ -34,4 +34,9 @@ export class UserPojo extends Model {
     field: "email",
   })
   email: string;
+  @Column({
+    type: DECIMAL,
+    field: "deposit",
+  })
+  deposit: number;
 }

@@ -15,4 +15,16 @@ export const cryptoIntermedioControllers = {
       return !!value ? res.send(value) : res.sendStatus(404);
     });
   },
+
+  updateCryptoUser: (req: any, res: any) => {
+    try {
+      const userCrypto = req.body;
+      console.log(userCrypto);
+      cryptoIntermedioService.updateCryptoUser(userCrypto).then((result) => {
+        res.json(result);
+      });
+    } catch {
+      res.sendStatus(400);
+    }
+  },
 };

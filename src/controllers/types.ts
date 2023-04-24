@@ -3,6 +3,7 @@ export class UserDto {
   username: string;
   password: string;
   email: string;
+  deposit: number;
 }
 
 export type NewUserDto = Omit<UserDto, "userId">;
@@ -20,4 +21,10 @@ export class CryptoDto {
   icon: string;
   asset: string;
   stock: number;
+}
+
+export class CryptoUserDto {
+  user_id: string;
+  crypto_id: string;
+  amount: number;
 }

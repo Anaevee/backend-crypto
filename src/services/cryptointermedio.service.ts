@@ -1,5 +1,5 @@
 import { CryptoIntermedioPojo } from "./../data/models/cryptointermedio.models";
-import { CryptoIntermedioDto } from "../controllers/types";
+import { CryptoIntermedioDto, CryptoUserDto } from "../controllers/types";
 import { CryptoIntermedioRepository } from "../data/repositories/cryptointermedio.repository";
 
 export class CryptoIntermedioService {
@@ -41,6 +41,17 @@ export class CryptoIntermedioService {
         throw error;
       });
     return cryptoName;
+  }
+
+  async updateCryptoUser(cryptoUser: CryptoUserDto): Promise<string> {
+    var cryptoUserPojo: CryptoIntermedioPojo =
+      cryptoUser as CryptoIntermedioPojo;
+    console.log(cryptoUserPojo);
+
+    const userPromise = await this._cryptointermedioRepository.updateCryptoUser(
+      cryptoUserPojo
+    );
+    return userPromise;
   }
 
   parsePojoIntoDto(

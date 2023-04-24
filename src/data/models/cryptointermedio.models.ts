@@ -14,7 +14,7 @@ export class CryptoIntermedioPojo extends Model {
     type: STRING,
     field: "user_id",
   })
-  userId: number;
+  user_id: string;
   @Column({
     primaryKey: true,
     type: STRING,
